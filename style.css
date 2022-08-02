@@ -1,0 +1,21 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.header{
+    background-color: blanchedalmond;
+    padding: 300px 200px;
+}
+
+.heading{
+    font-size: 30px;
+    font-weight: bold;
+    color: brown;
+    padding: 20px;
+}
+
+.subtext{
+    font-size: 20px;
+    color: rgb(220, 60, 60);
+    padding: 20px;
+}
