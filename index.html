@@ -6,14 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="./style.css">
-    <script  src="./script.js" defer></script>
+    <!-- <script  src="./script.js" defer></script> -->
     
   </head>
   <body>
     <div class="header">
-        <div class="heading">Rock Paper Scissors Game :)</div>
-        <div class="subtext">I can't be bothered to implement a proper UI. Maybe will do in the future with ReactJS hopefully</div>
-    </div>
-
+        <div class="heading">Rock, Paper, Scissors</div>
+      </div>
+      <div class="buttons">
+        <div class="rock">
+          <button id="rock">
+            <img src="./res/rock.png" alt="Rock Image" class="rock-image">
+          </button>
+        </div>
+        <div class="paper">
+          <button id="paper">
+            <img src="./res/paper.png" alt="Paper Image" class="paper-image">
+          </button>
+        </div>
+        <div class="scissors">
+          <button id="Scissors">
+            <img src="./res/scissors.png" alt="Scissors Image" class="scissors-image">
+          </button>
+        </div>
+      </div>
+      <div class="scorecard">
+        <div class="player-score"></div>
+        <div class="computer-score"></div>
+      </div>
   </body>
 </html>

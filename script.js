@@ -58,26 +58,24 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     let playerCounter = 0;
     let computerCounter = 0;
-    for (let i = 0; i < 5; i++) {
-        let computer = getComputerChoice();
-        let player = prompt("Enter Rock, Paper, or Scissors");
-        player = player.toLowerCase();
+    let computer = getComputerChoice();
+    let player = prompt("Enter Rock, Paper, or Scissors");
+    player = player.toLowerCase();
 
 
-        if (player == "rock" || player == "paper" || player == "scissors") {
-            let result = playRound(player, computer);
-            console.log(result);
+    if (player == "rock" || player == "paper" || player == "scissors") {
+        let result = playRound(player, computer);
+        console.log(result);
 
-            if (result.indexOf("Win") != -1) {
-                playerCounter++;
-            }
-            else if (result.indexOf("Lose") != -1) {
-                computerCounter++;
-            }
+        if (result.indexOf("Win") != -1) {
+            playerCounter++;
         }
-        else {
-            alert("Invalid Input!");
+        else if (result.indexOf("Lose") != -1) {
+            computerCounter++;
         }
+    }
+    else {
+        alert("Invalid Input!");
     }
 
     if (playerCounter > computerCounter) {
