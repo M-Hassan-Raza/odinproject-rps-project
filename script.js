@@ -1,3 +1,6 @@
+let playerCounter = 0;
+let computerCounter = 0;
+
 function getComputerChoice() {
     let generatedNumber = Math.floor(Math.random() * 3);
     let computerChoice = "";
@@ -18,8 +21,7 @@ function getComputerChoice() {
 
 }
 
-function playRound(playerSelection, computerSelection) {
-    let player = playerSelection.toLowerCase();
+function playRound(player, computerSelection) {
     let result = "";
 
     if (player == computerSelection) {
@@ -55,17 +57,17 @@ function playRound(playerSelection, computerSelection) {
     return result;
 }
 
-function game() {
-    let playerCounter = 0;
-    let computerCounter = 0;
-    let computer = getComputerChoice();
-    let player = prompt("Enter Rock, Paper, or Scissors");
-    player = player.toLowerCase();
 
 
-    if (player == "rock" || player == "paper" || player == "scissors") {
-        let result = playRound(player, computer);
-        console.log(result);
+
+const rock = document.getElementById("btnRock");
+const paper = document.getElementById("btnPaper");
+const scissors = document.getElementById("btnScissors");
+
+if (rock) {
+    rock.addEventListener('click', () => {
+        let computer = getComputerChoice();
+        let result = playRound('rock', computer);
 
         if (result.indexOf("Win") != -1) {
             playerCounter++;
@@ -73,21 +75,95 @@ function game() {
         else if (result.indexOf("Lose") != -1) {
             computerCounter++;
         }
-    }
-    else {
-        alert("Invalid Input!");
-    }
 
-    if (playerCounter > computerCounter) {
-        console.log("You Won the match with a score of " + playerCounter + " against " + computerCounter);
-    }
-    else if (playerCounter < computerCounter) {
-        console.log("You Lost the match with a score of " + playerCounter + " against " + computerCounter);
-    }
-    else {
-        console.log("The Match was a draw! Both You and the computer scored" + playerCounter + " points!");
-    }
+        document.getElementById('player-label').innerText = playerCounter;
+        document.getElementById('computer-label').innerText = computerCounter;
 
+
+        if (playerCounter == 5) {
+            let announcement = "You Won the match with a score of " + playerCounter + " against " + computerCounter;
+            confirm(announcement);
+            document.getElementById('player-label').innerText = 0;
+            document.getElementById('computer-label').innerText = 0;
+            playerCounter = 0;
+            computerCounter = 0;
+        }
+        else if (computerCounter == 5) {
+            let announcement = "You Lost the match with a score of " + playerCounter + " against " + computerCounter;
+            confirm(announcement);
+            document.getElementById('player-label').innerText = 0;
+            document.getElementById('computer-label').innerText = 0;
+            playerCounter = 0;
+            computerCounter = 0;
+        }
+    });
 }
 
-game();
+if (paper) {
+    paper.addEventListener("click", () => {
+        let computer = getComputerChoice();
+        let result = playRound('paper', computer);
+
+        if (result.indexOf("Win") != -1) {
+            playerCounter++;
+        }
+        else if (result.indexOf("Lose") != -1) {
+            computerCounter++;
+        }
+
+        document.getElementById('player-label').innerText = playerCounter;
+        document.getElementById('computer-label').innerText = computerCounter;
+
+        if (playerCounter == 5) {
+            let announcement = "You Won the match with a score of " + playerCounter + " against " + computerCounter;
+            confirm(announcement);
+            document.getElementById('player-label').innerText = 0;
+            document.getElementById('computer-label').innerText = 0;
+            playerCounter = 0;
+            computerCounter = 0;
+        }
+        else if (computerCounter == 5) {
+            let announcement = "You Lost the match with a score of " + playerCounter + " against " + computerCounter;
+            confirm(announcement);
+            document.getElementById('player-label').innerText = 0;
+            document.getElementById('computer-label').innerText = 0;
+            playerCounter = 0;
+            computerCounter = 0;
+        }
+    });
+}
+
+if (scissors) {
+
+    scissors.addEventListener("click", () => {
+        let computer = getComputerChoice();
+        let result = playRound('scissors', computer);
+
+        if (result.indexOf("Win") != -1) {
+            playerCounter++;
+        }
+        else if (result.indexOf("Lose") != -1) {
+            computerCounter++;
+        }
+
+        document.getElementById('player-label').innerText = playerCounter;
+        document.getElementById('computer-label').innerText = computerCounter;
+
+        if (playerCounter == 5) {
+            let announcement = "You Won the match with a score of " + playerCounter + " against " + computerCounter;
+            confirm(announcement);
+            document.getElementById('player-label').innerText = 0;
+            document.getElementById('computer-label').innerText = 0;
+            playerCounter = 0;
+            computerCounter = 0;
+        }
+        else if (computerCounter == 5) {
+            let announcement = "You Lost the match with a score of " + playerCounter + " against " + computerCounter;
+            confirm(announcement);
+            document.getElementById('player-label').innerText = 0;
+            document.getElementById('computer-label').innerText = 0;
+            playerCounter = 0;
+            computerCounter = 0;
+        }
+    });
+}
